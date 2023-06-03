@@ -1,21 +1,18 @@
 from question_model import Question
-from data import question_data
+from get_data import get_data as gt
 from quiz_brain import QuizBrain
-import random
+from gui import QuizzUi
 
 # new_question = Question(random.choice(data.question_data))
-question_bank = []
+question_bank = gt()
 
-for question in question_data  :
-    text = question['question']
-    answer = question['correct_answer']
-    new_question = Question(text, answer)
-    question_bank.append(new_question)
+
 
 quiz = QuizBrain(question_bank)
+quiz_ui = QuizzUi()
 
-while quiz.still_has_questions():
+# while quiz.still_has_questions():
 
-    quiz.next_question()
+    
 print("You've completed the Quiz!")
 print(f"Your final score was: {quiz.score}/{quiz.question_number}")    
