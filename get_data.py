@@ -6,8 +6,7 @@ def get_data():
     params = {
         "amount":10,
         "type":"boolean",
-        "category": 18,
-        "difficulty": 'hard',
+        "category":18,
     }
     response = rq.get('https://opentdb.com/api.php', params=params) 
     response.raise_for_status()
